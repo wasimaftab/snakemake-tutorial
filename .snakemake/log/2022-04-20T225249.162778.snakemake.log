@@ -1,0 +1,23 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count    min threads    max threads
+-------------  -------  -------------  -------------
+bcftools_call        1              1              1
+total                1              1              1
+
+Select jobs to execute...
+
+[Wed Apr 20 22:52:49 2022]
+rule bcftools_call:
+    input: data/genome.fa, sorted_reads/A.bam, sorted_reads/B.bam, sorted_reads/A.bam.bai, sorted_reads/B.bam.bai
+    output: calls/all.vcf
+    jobid: 0
+    resources: tmpdir=/tmp
+
+[Wed Apr 20 22:52:49 2022]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: /home/chuchu/Desktop/snakemake-tutorial/.snakemake/log/2022-04-20T225249.162778.snakemake.log

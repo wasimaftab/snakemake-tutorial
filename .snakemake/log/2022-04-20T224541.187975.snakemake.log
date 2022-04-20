@@ -1,0 +1,64 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job               count    min threads    max threads
+--------------  -------  -------------  -------------
+samtools_index        2              1              1
+samtools_sort         2              1              1
+total                 4              1              1
+
+Select jobs to execute...
+
+[Wed Apr 20 22:45:41 2022]
+rule samtools_sort:
+    input: mapped_reads/B.bam
+    output: sorted_reads/B.bam
+    jobid: 4
+    wildcards: sample=B
+    resources: tmpdir=/tmp
+
+[Wed Apr 20 22:45:41 2022]
+Finished job 4.
+1 of 4 steps (25%) done
+Select jobs to execute...
+
+[Wed Apr 20 22:45:41 2022]
+rule samtools_index:
+    input: sorted_reads/B.bam
+    output: sorted_reads/B.bam.bai
+    jobid: 3
+    wildcards: sample=B
+    resources: tmpdir=/tmp
+
+[Wed Apr 20 22:45:41 2022]
+Finished job 3.
+2 of 4 steps (50%) done
+Select jobs to execute...
+
+[Wed Apr 20 22:45:41 2022]
+rule samtools_sort:
+    input: mapped_reads/A.bam
+    output: sorted_reads/A.bam
+    jobid: 1
+    wildcards: sample=A
+    resources: tmpdir=/tmp
+
+[Wed Apr 20 22:45:41 2022]
+Finished job 1.
+3 of 4 steps (75%) done
+Select jobs to execute...
+
+[Wed Apr 20 22:45:41 2022]
+rule samtools_index:
+    input: sorted_reads/A.bam
+    output: sorted_reads/A.bam.bai
+    jobid: 0
+    wildcards: sample=A
+    resources: tmpdir=/tmp
+
+[Wed Apr 20 22:45:41 2022]
+Finished job 0.
+4 of 4 steps (100%) done
+Complete log: /home/chuchu/Desktop/snakemake-tutorial/.snakemake/log/2022-04-20T224541.187975.snakemake.log
